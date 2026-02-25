@@ -1,13 +1,13 @@
 /**
  * =========================================================
- *  MAIN CLASS - UseCase3PalindromeCheckerApp
+ *  MAIN CLASS - UseCase4PalindromeCheckerApp
  * =========================================================
  *
- * Use Case 3: Palindrome Check Using String Reverse
+ * Use Case 4: Character Array Based Palindrome Check
  *
  * Description:
- * This program reverses a string using a loop and checks whether
- * the reversed string matches the original string.
+ * This program converts a string into a character array and
+ * checks whether it is a palindrome using the two-pointer approach.
  */
 
 public class palindromecheckerapp{
@@ -21,20 +21,27 @@ public class palindromecheckerapp{
         // Hardcoded input string
         String input = "madam";
 
+        // Convert string to character array
+        char[] chars = input.toCharArray();
 
-        String reversed = "";
+        // Two-pointer initialization
+        int start = 0;
+        int end = chars.length - 1;
 
+        boolean isPalindrome = true;
 
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        // Two-pointer comparison
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
-
-        boolean isPalindrome = input.equals(reversed);
-
-
-        System.out.println("Original String: " + input);
-        System.out.println("Reversed String: " + reversed);
+        // Display result
+        System.out.println("Input text: " + input);
         System.out.println("Is it a Palindrome? : " + isPalindrome);
     }
 }
